@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:draw_graph/models/feature.dart';
+import 'package:flutter/material.dart';
 
 class LineGraphPainter extends CustomPainter {
   final List<Feature>? features;
@@ -84,14 +84,14 @@ class LineGraphPainter extends CustomPainter {
   void drawLabelsY(
       Canvas canvas, Size size, Size margin, Size graph, Size cell) {
     for (int i = 0; i < labelY!.length; i++) {
-      TextSpan span = new TextSpan(
-        style: new TextStyle(
+      TextSpan span = TextSpan(
+        style: TextStyle(
           color: graphColor,
           fontFamily: fontFamily,
         ),
         text: labelY![i],
       );
-      TextPainter tp = new TextPainter(
+      TextPainter tp = TextPainter(
         text: span,
         textAlign: TextAlign.left,
         textDirection: TextDirection.ltr,
@@ -99,7 +99,7 @@ class LineGraphPainter extends CustomPainter {
       tp.layout();
       tp.paint(
         canvas,
-        new Offset(
+        Offset(
           size.width / 20,
           margin.height + graph.height - 8 - (i + 1) * cell.height,
         ),
@@ -109,21 +109,21 @@ class LineGraphPainter extends CustomPainter {
 
   void drawLabelsX(Canvas canvas, Size margin, Size graph, Size cell) {
     for (int i = 0; i < labelX!.length; i++) {
-      TextSpan span = new TextSpan(
-        style: new TextStyle(
+      TextSpan span = TextSpan(
+        style: TextStyle(
           color: graphColor,
           fontFamily: fontFamily,
         ),
         text: labelX![i],
       );
-      TextPainter tp = new TextPainter(
+      TextPainter tp = TextPainter(
           text: span,
           textAlign: TextAlign.left,
           textDirection: TextDirection.ltr);
       tp.layout();
       tp.paint(
         canvas,
-        new Offset(
+        Offset(
           margin.width + cell.width * i - 16,
           margin.height + graph.height + 10,
         ),

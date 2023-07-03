@@ -1,14 +1,16 @@
-import 'package:flutter/material.dart';
 import 'package:draw_graph/draw_graph.dart';
 import 'package:draw_graph/models/feature.dart';
+import 'package:flutter/material.dart';
 
-final Color darkBlue = Color.fromARGB(255, 18, 32, 47);
+const Color darkBlue = Color.fromARGB(255, 18, 32, 47);
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -16,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.dark().copyWith(scaffoldBackgroundColor: darkBlue),
       home: Scaffold(
         appBar: AppBar(
-          title: Text("DrawGraph Package"),
+          title: const Text("DrawGraph Package"),
         ),
         body: MyScreen(),
       ),
@@ -53,6 +55,8 @@ class MyScreen extends StatelessWidget {
     ),
   ];
 
+  MyScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -60,8 +64,8 @@ class MyScreen extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
         Container(),
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: 64.0),
+        const Padding(
+          padding: EdgeInsets.symmetric(vertical: 64.0),
           child: Text(
             "Tasks Track",
             style: TextStyle(
@@ -73,16 +77,16 @@ class MyScreen extends StatelessWidget {
         ),
         LineGraph(
           features: features,
-          size: Size(320, 400),
-          labelX: ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5'],
-          labelY: ['20%', '40%', '60%', '80%', '100%'],
+          size: const Size(320, 400),
+          labelX: const ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5'],
+          labelY: const ['20%', '40%', '60%', '80%', '100%'],
           showDescription: true,
           graphColor: Colors.white30,
           graphOpacity: 0.2,
           verticalFeatureDirection: true,
           descriptionHeight: 130,
         ),
-        SizedBox(
+        const SizedBox(
           height: 50,
         )
       ],
